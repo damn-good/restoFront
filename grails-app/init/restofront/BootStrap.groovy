@@ -4,7 +4,7 @@ import com.restoFront.RestoMenuElement
 class BootStrap {
 
     def init = { servletContext ->
-    	def data= [	label: 'Rhum st James',
+    	def data= [	label: 'Rhum st James ',
 					status: 'Au menu',
 					category: 'appéritifs',
 					price: 2000,
