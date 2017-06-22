@@ -424,7 +424,7 @@
                         <!-- Master Slider -->
                         <div class="master-slider ms-skin-default" id="masterslider">
                             <div class="ms-slide">
-                                <asset:image class="ms-brd" src="blank.gif" data-src="blog/28.jpg" alt="lorem ipsum dolor sit"/>
+                                <asset:image class="ms-brd" src="file/getMenuElementPhoto/${restoMenuElement.id}" data-src="file/getMenuElementPhoto/${restoMenuElement.id}" alt="lorem ipsum dolor sit"/>
                                 <asset:image class="ms-thumb" src="blog/28-thumb.jpg" alt="thumb"/>
                             </div>
                             <div class="ms-slide">

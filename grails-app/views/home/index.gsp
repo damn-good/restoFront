@@ -319,7 +319,7 @@
                 <g:each in="${apperitifs}" var="appero">
                 <li class="item">
                     <div class="product-img">
-                        <g:link controller="restoMenuElement" action="show" id="${appero.id}"><img class="full-width img-responsive" src="http://localhost:8080/file/getMenuElementPhoto/${appero.id}" alt=""/></g:link>
+                        <g:link controller="restoMenuElement" action="show" id="${appero.id}"><img class="full-width img-responsive" src="file/getMenuElementPhoto/${appero.id}" alt=""/></g:link>
                         <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Commander</a>
                     </div>
                     <div class="product-description product-description-brd">
@@ -362,7 +362,7 @@
                 <g:each in="${rafraichissements}" var="rafrichissement">
                 <li class="item">
                     <div class="product-img">
-                        <g:link controller="restoMenuElement" action="show" id="${rafrichissement.id}"><img class="full-width img-responsive" src="http://localhost:8080/file/getMenuElementPhoto/${rafrichissement.id}" alt=""/></g:link>
+                        <g:link controller="restoMenuElement" action="show" id="${rafrichissement.id}"><img class="full-width img-responsive" src="file/getMenuElementPhoto/${rafrichissement.id}" alt=""/></g:link>
                         <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Commander</a>
                     </div>
                     <div class="product-description product-description-brd">
@@ -407,7 +407,7 @@
                 <g:each in="${entrees}" var="entree">
                 <li class="item">
                     <div class="product-img">
-                        <g:link controller="restoMenuElement" action="show" id="${entree.id}"><img class="full-width img-responsive" src="http://localhost:8080/file/getMenuElementPhoto/${entree.id}" alt=""/></g:link>
+                        <g:link controller="restoMenuElement" action="show" id="${entree.id}"><img class="full-width img-responsive" src="file/getMenuElementPhoto/${entree.id}" alt=""/></g:link>
                         <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Commander</a>
                     </div>
                     <div class="product-description product-description-brd">
@@ -452,7 +452,7 @@
                 <g:each in="${apperitifs}" var="appero">
                 <li class="item">
                     <div class="product-img">
-                        <g:link controller="restoMenuElement" action="show" id="${appero.id}"><img class="full-width img-responsive" src="http://localhost:8080/file/getMenuElementPhoto/${appero.id}" alt=""/></g:link>
+                        <g:link controller="restoMenuElement" action="show" id="${appero.id}"><img class="full-width img-responsive" src="file/getMenuElementPhoto/${appero.id}" alt=""/></g:link>
                         <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Commander</a>
                     </div>
                     <div class="product-description product-description-brd">
@@ -498,7 +498,7 @@
                 <g:each in="${apperitifs}" var="appero">
                 <li class="item">
                     <div class="product-img">
-                        <a href="shop-ui-inner.html"><img class="full-width img-responsive" src="http://localhost:8080/file/getMenuElementPhoto/${appero.id}" alt=""/></a>
+                        <a href="shop-ui-inner.html"><img class="full-width img-responsive" src="file/getMenuElementPhoto/${appero.id}" alt=""/></a>
                         <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Commander</a>
                     </div>
                     <div class="product-description product-description-brd">
