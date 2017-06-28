@@ -1,7 +1,7 @@
 package com.restoFront
 
 class RestoMenuElement {
-	String category,label,status
+	String category,label,status,description
 	int price, cookDuration
 	byte[] photo
 
@@ -9,7 +9,8 @@ class RestoMenuElement {
     	label nullable:false
     	category inList:["appéritifs","rafraîchissements", "entrées", "consistances", "Desserts"]
         status inList:["Au menu", "Archivé", "Plus en stock"]
-    	photo nullable:true, maxSize:2000000000
+    	photo nullable:true, maxSize:10485760
+        description maxSize:25000
     	cookDuration()
     }
 

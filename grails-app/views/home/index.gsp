@@ -325,7 +325,7 @@
                     <div class="product-description product-description-brd">
                         <div class="overflow-h margin-bottom-5">
                             <div class="pull-left">
-                                <h4 class="title-price"><a href="shop-ui-inner.html">${appero.label}</a></h4>
+                                <h4 class="title-price"><g:link controller="restoMenuElement" action="show" id="${appero.id}">${appero.label}</g:link></h4>
                             </div>    
                             <div class="product-price">
                                 <span class="title-price">${appero.price} Frcs</span>
