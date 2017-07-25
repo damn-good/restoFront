@@ -113,8 +113,8 @@
                             <a href="#"><i class="fa fa-shopping-cart"></i></a>
                             <span class="badge badge-sea rounded-x" id="productCntr">0</span>
                             <ul class="list-unstyled badge-open mCustomScrollbar" data-mcs-theme="minimal-dark" id="cartDropDown">
-                                <li id="target" style="display:none">   
-                                </li>
+                                <div id="target">   
+                                </div>
                                 <li class="subtotal">
                                     <div class="overflow-h margin-bottom-10">
                                         <span>Addition</span>

@@ -129,8 +129,8 @@ var App = function () {
                             dataType: "json", // html, xml, json
                             success: function (json, stat){
                                 console.dir(json);
-
-                                $("#target").after("<li><img src='file/getMenuElementPhoto/"+json.id+"'/><button type='button' class='close'>×</button><div class='overflow-h'><span>"+json.label+"</span><small>"+json.price+"</small> x <small id='number"+json.id+"'></small></div></li>");
+                                
+                                $("#target").append("<li><img src='file/getMenuElementPhoto/"+json.id+"'/><button type='button' class='close'>×</button><div class='overflow-h'><span>"+json.label+"</span><small>"+json.price+"</small> x <small id='number"+json.id+"'></small></div></li>");
                                 for(i=0;i<returnedData.items.length;i++){
                                     console.log(returnedData.items[i].number)
                                     $("#number"+returnedData.items[i].product.id).html(returnedData.items[i].number);
