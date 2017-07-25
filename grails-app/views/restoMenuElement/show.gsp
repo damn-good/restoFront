@@ -229,7 +229,12 @@
                             <img style="width:500px" class="img-fluid ms-brd" src="/file/getMenuElementPhoto/${restoMenuElement.id}" alt="lorem ipsum dolor sit"/>
                         <div >
                             
-                            <g:link controller="restoMenuElement" action="edit" id="${restoMenuElement.id}"><button style="width:500px"type="button" class=" btn-u btn-u-sea-shop btn-u-lg" >Modifier le produit</button></g:link> 
+                            <g:link controller="restoMenuElement" action="edit" id="${restoMenuElement.id}"><button style="width:250px"type="button" class="col-md-3 btn-u btn-u-sea-shop btn-u-lg" >Modifier le produit</button></g:link> 
+                            <g:form resource="${this.restoMenuElement}" method="DELETE">
+                                <fieldset class="buttons">
+                                    <input style="width:250px" class=" col-md-3 btn-u shop-red  btn-u-sea-shop btn-u-lg" type="submit" value="Supprimer le produit" onclick="return confirm('Confirmez vous la suppression?');" />
+                                </fieldset>
+                            </g:form>
                         </div>  
                         <!-- End Master Slider -->
                     </div>

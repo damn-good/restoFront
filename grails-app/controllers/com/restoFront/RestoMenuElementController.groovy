@@ -17,6 +17,13 @@ class RestoMenuElementController {
         respond restoMenuElement
     }
 
+    def details(RestoMenuElement restoMenuElement){
+        restoMenuElement.photo=null;
+        request.withFormat {
+            '*' { respond restoMenuElement, formats:['json'] }
+        }
+    }
+
     def create() {
         respond new RestoMenuElement(params)
     }
@@ -93,7 +100,7 @@ class RestoMenuElementController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'restoMenuElement.label', default: 'RestoMenuElement'), restoMenuElement.id])
-                redirect action:"index", method:"GET"
+                redirect controller:"home", action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
         }

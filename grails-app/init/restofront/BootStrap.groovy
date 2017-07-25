@@ -5,7 +5,6 @@ class BootStrap {
 
     def init = { servletContext ->
     	def data= [	label: 'Rhum st James ',
-					status: 'Au menu',
 					category: 'appéritifs',
 					description:"Un véritable tsunami de saveurs.",
 					price: 2000,

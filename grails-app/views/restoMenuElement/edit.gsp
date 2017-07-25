@@ -222,7 +222,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-6 md-margin-bottom-50">
+                <div class="col-md-5 md-margin-bottom-50">
                     <div class="ms-showcase2-template" >
                         <!-- Master Slider -->
                         
@@ -233,8 +233,8 @@
 
                 </div>
 
-                <div id="passwordTab" class="profile-edit col-md-6" >
-                    <br>
+                <div class="col-md-1"></div>
+                <div class="col-md-6" >
                     <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>
                     </g:if>
@@ -245,40 +245,43 @@
                         </g:eachError>
                     </ul>
                     </g:hasErrors>
-                    <br>
-                    <g:uploadForm resource="${this.restoMenuElement}" method="PUT" action="update" class="sky-form" style="border:none">
-                    <f:with bean="restoMenuElement">                        
-                                <section>
-                                    <label class="input">
-                                        <f:field property="label" label="Dénomination"/>
-                                        <b class="tooltip tooltip-bottom-right">Le nouveau nom</b>
-                                    </label>
-                                </section>
-                                <section>
-                                    <label class="input">
-                                        <f:field property="price" label="Prix"/>
-                                        <b class="tooltip tooltip-bottom-right">Un bon prix</b>
-                                    </label>
-                                </section>
-                                <section>
-                                    <label class="input">
-                                        <f:field property="description" label="Description"/>
-                                        <b class="tooltip tooltip-bottom-right">Brève description du produit</b>
-                                    </label>
-                                </section>
-                                <section>
-                                    <label>
-                                        <f:field property="photo" label="Photo"/>
-                                        <b class="tooltip tooltip-bottom-right">Modifiez l'image du produit</b>
-                                    </label>
-                                </section>
-                        <br>
-                        <button type="button" class="btn-u btn-u-default">Annuler</button>
-                        <button class="btn-u" type="submit">Sauvegarder</button>
-                    </f:with>
-                    </g:uploadForm>    
-                </div>
-
+                    <!-- General Unify Forms -->
+                    <g:uploadForm resource="${this.restoMenuElement}" method="PUT" class="sky-form">
+                    <f:with bean="restoMenuElement">
+                        <header style="text-align: center;">Formulaire de modification</header>
+                        
+                        <fieldset>
+                            <section>
+                                <label class="input">
+                                    <f:field property="label" label="Dénomination"/>
+                                    <b class="tooltip tooltip-bottom-right">Le nouveau nom</b>
+                                </label>
+                            </section>
+                            <section>
+                                <label>
+                                    <f:field property="photo" label="Photo"/>
+                                    <b class="tooltip tooltip-bottom-right">Modifiez l'image du produit</b>
+                                </label>
+                            </section>
+                            <section>
+                                <label class="input">
+                                    <f:field property="price" label="Prix"/>
+                                    <b class="tooltip tooltip-bottom-right">Un bon prix</b>
+                                </label>
+                            </section>
+                            <section>
+                                <label class="input">
+                                    <f:field property="description" label="Description"/>
+                                    <b class="tooltip tooltip-bottom-right">Brève description du produit</b>
+                                </label>
+                            </section>
+                            <button class="btn-u btn-u-sea-shop btn-u-lg" type="submit">Sauvegarder</button> 
+                        </fieldset>                                   
+                        
+                        </f:with>
+                    </g:uploadForm>
+                                    <!-- General Unify Forms -->
+                </div>                
             </div><!--/end row-->
         </div>    
     </div>

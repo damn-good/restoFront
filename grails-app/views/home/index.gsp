@@ -111,43 +111,21 @@
                     <ul class="list-inline shop-badge badge-lists badge-icons pull-right">
                         <li>
                             <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                            <span class="badge badge-sea rounded-x">0</span>
-                            <ul class="list-unstyled badge-open mCustomScrollbar" data-mcs-theme="minimal-dark">
-                                <li>
-                                    <asset:image src="/thumb/05.jpg" alt=""/>
-                                    <button type="button" class="close">×</button>
-                                    <div class="overflow-h">
-                                        <span>Black Glasses</span>
-                                        <small>1 x $400.00</small>
-                                    </div>    
-                                </li>
-                                <li>
-                                    <asset:image src="/thumb/02.jpg" alt=""/>
-                                    <button type="button" class="close">×</button>
-                                    <div class="overflow-h">
-                                        <span>Black Glasses</span>
-                                        <small>1 x $400.00</small>
-                                    </div>    
-                                </li>
-                                <li>
-                                    <asset:image src="/thumb/03.jpg" alt=""/>
-                                    <button type="button" class="close">×</button>
-                                    <div class="overflow-h">
-                                        <span>Black Glasses</span>
-                                        <small>1 x $400.00</small>
-                                    </div>    
+                            <span class="badge badge-sea rounded-x" id="productCntr">0</span>
+                            <ul class="list-unstyled badge-open mCustomScrollbar" data-mcs-theme="minimal-dark" id="cartDropDown">
+                                <li id="target" style="display:none">   
                                 </li>
                                 <li class="subtotal">
                                     <div class="overflow-h margin-bottom-10">
-                                        <span>Subtotal</span>
-                                        <span class="pull-right subtotal-cost">$1200.00</span>
+                                        <span>Addition</span>
+                                        <span id="cost" class="pull-right subtotal-cost">0.00 XOF</span>
                                     </div>
                                     <div class="row">    
                                         <div class="col-xs-6">
-                                            <a href="shop-ui-inner.html" class="btn-u btn-brd btn-brd-hover btn-u-sea-shop btn-block">View Cart</a>
+                                            <a href="shop-ui-inner.html" class="btn-u btn-brd btn-brd-hover btn-u-sea-shop btn-block">Détails</a>
                                         </div>
                                         <div class="col-xs-6">
-                                            <a href="shop-ui-add-to-cart.html" class="btn-u btn-u-sea-shop btn-block">Checkout</a>
+                                            <a href="shop-ui-add-to-cart.html" class="btn-u btn-u-sea-shop btn-block">Caisse</a>
                                         </div>
                                     </div>        
                                 </li>    
@@ -169,6 +147,8 @@
                                 <li><a href="shop-ui-filter-grid.html">Plats de résistance</a></li>
                                 <li><a href="shop-ui-filter-list.html">Désserts</a></li>
                                 <li><a href="shop-ui-filter-list.html">rafraîchissements</a></li>
+                                <li><g:link controller="restoMenuElement" action="create">Nouveau produit</g:link> </li>
+
                             </ul>
                         </li>
                         <!-- End Pages -->
@@ -324,7 +304,7 @@
                     </div>
                     <div class="product-description product-description-brd">
                         <div class="overflow-h margin-bottom-5">
-                            <div class="pull-left">
+                            <div class="pull-left" style="width:150px">
                                 <h4 class="title-price"><g:link controller="restoMenuElement" action="show" id="${appero.id}">${appero.label}</g:link></h4>
                             </div>    
                             <div class="product-price">
@@ -346,6 +326,58 @@
         </div> 
         <!--=== End Illustration v2 ===-->
 
+        
+        <div class="heading heading-v1 margin-bottom-40">
+            <br>
+            <br>
+            <br>
+            <h2>Nos Plats d'entrée</h2>
+        </div>
+
+
+        <!--=== Illustration v2 ===-->
+        <div class="illustration-v2 margin-bottom-60">
+            <div class="customNavigation margin-bottom-25">
+                <a class="owl-btn prev rounded-x"><i class="fa fa-angle-left"></i></a>
+                <a class="owl-btn next rounded-x"><i class="fa fa-angle-right"></i></a>
+            </div>
+
+            <ul class="list-inline owl-slider">
+                <g:each in="${entrees}" var="entree">
+                <li class="item">
+                    <div class="product-img">
+                        <g:link controller="restoMenuElement" action="show" id="${entree.id}"><img class="full-width img-responsive" src="file/getMenuElementPhoto/${entree.id}" alt=""/></g:link>
+                        <g:form controller="orderedElement" action="save" method="POST" id="test${entree.id}">
+                            <g:hiddenField name="product" value="${entree.id}" />
+                            <g:hiddenField name="order" value="${currentOrder.id}" />
+                            <g:hiddenField name="number" value="1" />
+                            <input type="submit" value="Commander" class="add-to-cart"/>
+
+                        </g:form>
+                    </div>
+                    <div class="product-description product-description-brd">
+                        <div class="overflow-h margin-bottom-5">
+                            <div class="pull-left">
+                                <h4 class="title-price" style="width:150px"><g:link controller="restoMenuElement" action="show" id="${entree.id}">${entree.label}</g:link></h4>
+                            </div>    
+                            <div class="product-price">
+                                <span class="title-price">${entree.price} Frcs</span>
+                            </div>
+                        </div>    
+                        <ul class="list-inline product-ratings">
+                            <li><i class="rating-selected fa fa-star"></i></li>
+                            <li><i class="rating-selected fa fa-star"></i></li>
+                            <li><i class="rating-selected fa fa-star"></i></li>
+                            <li><i class="rating fa fa-star"></i></li>
+                            <li><i class="rating fa fa-star"></i></li>
+                            <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
+                        </ul>    
+                    </div>
+                </li>
+                </g:each> 
+            </ul>
+        </div> 
+        <!--=== End Illustration v2 ===-->
         <div class="heading heading-v1 margin-bottom-40">
             <h2>Nos rafraîchissements</h2>
         </div>
@@ -392,51 +424,6 @@
             <br>
             <br>
             <br>
-            <h2>Nos Plats d'entrée</h2>
-        </div>
-
-
-        <!--=== Illustration v2 ===-->
-        <div class="illustration-v2 margin-bottom-60">
-            <div class="customNavigation margin-bottom-25">
-                <a class="owl-btn prev rounded-x"><i class="fa fa-angle-left"></i></a>
-                <a class="owl-btn next rounded-x"><i class="fa fa-angle-right"></i></a>
-            </div>
-
-            <ul class="list-inline owl-slider">
-                <g:each in="${entrees}" var="entree">
-                <li class="item">
-                    <div class="product-img">
-                        <g:link controller="restoMenuElement" action="show" id="${entree.id}"><img class="full-width img-responsive" src="file/getMenuElementPhoto/${entree.id}" alt=""/></g:link>
-                        <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Commander</a>
-                    </div>
-                    <div class="product-description product-description-brd">
-                        <div class="overflow-h margin-bottom-5">
-                            <div class="pull-left">
-                                <h4 class="title-price"><a href="shop-ui-inner.html">${entree.label}</a></h4>
-                            </div>    
-                            <div class="product-price">
-                                <span class="title-price">${entree.price} Frcs</span>
-                            </div>
-                        </div>    
-                        <ul class="list-inline product-ratings">
-                            <li><i class="rating-selected fa fa-star"></i></li>
-                            <li><i class="rating-selected fa fa-star"></i></li>
-                            <li><i class="rating-selected fa fa-star"></i></li>
-                            <li><i class="rating fa fa-star"></i></li>
-                            <li><i class="rating fa fa-star"></i></li>
-                            <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
-                        </ul>    
-                    </div>
-                </li>
-                </g:each> 
-            </ul>
-        </div> 
-        <!--=== End Illustration v2 ===-->
-        <div class="heading heading-v1 margin-bottom-40">
-            <br>
-            <br>
-            <br>
             <h2>Nos Plats de résistance</h2>
         </div>
 
@@ -458,8 +445,8 @@
                     <div class="product-description product-description-brd">
                         <div class="overflow-h margin-bottom-5">
                             <div class="pull-left">
-                                <h4 class="title-price"><a href="shop-ui-inner.html">${appero.label}</a></h4>
-                            </div>    
+                                <h4 class="title-price" style="width:150px"><g:link controller="restoMenuElement" action="show" id="${appero.id}">${appero.label}</g:link></h4>
+                            </div>  
                             <div class="product-price">
                                 <span class="title-price">${appero.price} Frcs</span>
                             </div>
@@ -707,6 +694,8 @@
         App.initParallaxBg();
         OwlCarousel.initOwlCarousel();
         RevolutionSlider.initRSfullWidth();
+
+
     });
 </script>
 <!--[if lt IE 9]>

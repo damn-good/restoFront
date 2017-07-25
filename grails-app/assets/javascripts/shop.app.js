@@ -89,7 +89,71 @@ var App = function () {
         $(document).on('click', '.mega-menu .dropdown-menu', function(e) {
             e.stopPropagation()
         })
-    }         
+    }
+
+    function handleAddToCart(){
+        jQuery(".add-to-cart").click(
+            function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/orderedElement/save",
+                    dataType: "json", // html, xml, json
+                    data: $(e.target).closest("form").serialize(),
+                    success: successCallbackFunction,
+                    error: errorCallbackFunction
+                })
+                
+                function successCallbackFunction(returnedData, status) {
+                    //update command details component
+                    $.ajax({
+                        type: "GET",
+                        url: "command/details/"+returnedData.order.id,
+                        dataType: "json", // html, xml, json
+                        success: commandDetailsCallback,
+                        error: errorCallbackFunction
+                    })
+
+                }
+                function commandDetailsCallback(returnedData, status){
+                    var productCntr=0;
+                    var cash=0;
+                    $("#target").empty();
+                    $("#cost").html(returnedData.cost);
+                    for(i=0;i<returnedData.items.length;i++){
+                        productCntr+=returnedData.items[i].number;
+                        $("#productCntr").html(productCntr);
+                        $.ajax({
+                            type: "GET",
+                            url: "restoMenuElement/details/"+returnedData.items[i].product.id,
+                            dataType: "json", // html, xml, json
+                            success: function (json, stat){
+                                console.dir(json);
+
+                                $("#target").after("<li><img src='file/getMenuElementPhoto/"+json.id+"'/><button type='button' class='close'>×</button><div class='overflow-h'><span>"+json.label+"</span><small>"+json.price+"</small> x <small id='number"+json.id+"'></small></div></li>");
+                                for(i=0;i<returnedData.items.length;i++){
+                                    console.log(returnedData.items[i].number)
+                                    $("#number"+returnedData.items[i].product.id).html(returnedData.items[i].number);
+                                }
+                            },
+                            error: errorCallbackFunction
+                        })
+                    }
+
+
+
+
+                    
+
+                }
+
+                function errorCallbackFunction(request, status, errorMsg) {
+                    console.log(errorMsg);
+                }
+
+            }
+        )
+    }       
 
     return {
         init: function () {
@@ -99,6 +163,7 @@ var App = function () {
             handleBoxed();
             handleHeader();
             handleMegaMenu();
+            handleAddToCart();
         },
 
         initScrollBar: function () {
