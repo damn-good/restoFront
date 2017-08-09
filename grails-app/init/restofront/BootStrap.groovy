@@ -90,10 +90,37 @@ class BootStrap {
 		data.category= 'entrées'
 		new RestoMenuElement(data).save()
 		data.label='Soupe au légumes'
-		data.price=0
+		data.price=1000
 		data.category= 'entrées'
 		new RestoMenuElement(data).save()
 
+		data.label='Tarte au pommes'
+		data.price=5000
+		data.category= 'désserts'
+		new RestoMenuElement(data).save()
+		data.label='Crêpes au chocolat'
+		data.price=5000
+		new RestoMenuElement(data).save()
+		data.label='Crêpes à la fraise'
+		data.price=2500
+		new RestoMenuElement(data).save()
+		data.label='Glace à la mangue'
+		data.price=1000
+		new RestoMenuElement(data).save()
+
+		data.label='Pâtes bolognaises'
+		data.price=5000
+		data.category= 'consistances'
+		new RestoMenuElement(data).save()
+		data.label='Pizza royale'
+		data.price=5000
+		new RestoMenuElement(data).save()
+		data.label='Rizoto'
+		data.price=2500
+		new RestoMenuElement(data).save()
+		data.label='Chawamar'
+		data.price=1000
+		new RestoMenuElement(data).save()
 
 
     }

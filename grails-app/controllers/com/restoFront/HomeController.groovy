@@ -16,7 +16,7 @@ class HomeController {
     					entrees:RestoMenuElement.findAllByCategory('entrées'),
     					consistances:RestoMenuElement.findAllByCategory('consistances'),
     					currentOrder:session.currentOrder,
-    					rafraichissements:RestoMenuElement.findAllByCategory('dessserts'),
+    					desserts:RestoMenuElement.findAllByCategory('désserts'),
     					rafraichissements:RestoMenuElement.findAllByCategory('rafraîchissements')]
     }
 }

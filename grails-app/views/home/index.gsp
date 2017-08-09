@@ -100,7 +100,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="#">
                         <asset:image id="logo-header" src="/logo.png" alt="Logo"/>
                     </a>
                 </div>
@@ -110,8 +110,8 @@
                     <!-- Shopping Cart -->
                     <ul class="list-inline shop-badge badge-lists badge-icons pull-right">
                         <li>
-                            <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                            <span class="badge badge-sea rounded-x" id="productCntr">0</span>
+                            <a href="#"><i class="fa fa-shopping-cart flashIcon" style="visibility: visible; animation-name: shake;"></i></a>
+                            <span class="badge badge-sea rounded-x flashIcon" id="productCntr">0</span>
                             <ul class="list-unstyled badge-open mCustomScrollbar" data-mcs-theme="minimal-dark" id="cartDropDown">
                                 <div id="target">   
                                 </div>
@@ -122,7 +122,7 @@
                                     </div>
                                     <div class="row">    
                                         <div class="col-xs-6">
-                                            <a href="shop-ui-inner.html" class="btn-u btn-brd btn-brd-hover btn-u-sea-shop btn-block">Détails</a>
+                                            <g:link controller="command" action="checkout" id="${currentOrder.id}"class="btn-u btn-brd btn-brd-hover btn-u-sea-shop btn-block">Détails</g:link>
                                         </div>
                                         <div class="col-xs-6">
                                             <a href="shop-ui-add-to-cart.html" class="btn-u btn-u-sea-shop btn-block">Caisse</a>
@@ -300,7 +300,13 @@
                 <li class="item">
                     <div class="product-img">
                         <g:link controller="restoMenuElement" action="show" id="${appero.id}"><img class="full-width img-responsive" src="file/getMenuElementPhoto/${appero.id}" alt=""/></g:link>
-                        <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Commander</a>
+                        <g:form controller="orderedElement" action="save" method="POST" id="test${appero.id}">
+                            <g:hiddenField name="product" value="${appero.id}" />
+                            <g:hiddenField name="order" value="${currentOrder.id}" />
+                            <g:hiddenField name="number" value="1" />
+                            <input type="submit" value="Commander" class="add-to-cart"/>
+
+                        </g:form>
                     </div>
                     <div class="product-description product-description-brd">
                         <div class="overflow-h margin-bottom-5">
@@ -395,7 +401,13 @@
                 <li class="item">
                     <div class="product-img">
                         <g:link controller="restoMenuElement" action="show" id="${rafrichissement.id}"><img class="full-width img-responsive" src="file/getMenuElementPhoto/${rafrichissement.id}" alt=""/></g:link>
-                        <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Commander</a>
+                        <g:form controller="orderedElement" action="save" method="POST" id="test${rafrichissement.id}">
+                            <g:hiddenField name="product" value="${rafrichissement.id}" />
+                            <g:hiddenField name="order" value="${currentOrder.id}" />
+                            <g:hiddenField name="number" value="1" />
+                            <input type="submit" value="Commander" class="add-to-cart"/>
+
+                        </g:form>
                     </div>
                     <div class="product-description product-description-brd">
                         <div class="overflow-h margin-bottom-5">
@@ -436,11 +448,17 @@
             </div>
 
             <ul class="list-inline owl-slider">
-                <g:each in="${apperitifs}" var="appero">
+                <g:each in="${consistances}" var="appero">
                 <li class="item">
                     <div class="product-img">
                         <g:link controller="restoMenuElement" action="show" id="${appero.id}"><img class="full-width img-responsive" src="file/getMenuElementPhoto/${appero.id}" alt=""/></g:link>
-                        <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Commander</a>
+                        <g:form controller="orderedElement" action="save" method="POST" id="test${appero.id}">
+                            <g:hiddenField name="product" value="${appero.id}" />
+                            <g:hiddenField name="order" value="${currentOrder.id}" />
+                            <g:hiddenField name="number" value="1" />
+                            <input type="submit" value="Commander" class="add-to-cart"/>
+
+                        </g:form>
                     </div>
                     <div class="product-description product-description-brd">
                         <div class="overflow-h margin-bottom-5">
@@ -482,19 +500,25 @@
             </div>
 
             <ul class="list-inline owl-slider">
-                <g:each in="${apperitifs}" var="appero">
+                <g:each in="${desserts}" var="dessert">
                 <li class="item">
                     <div class="product-img">
-                        <a href="shop-ui-inner.html"><img class="full-width img-responsive" src="file/getMenuElementPhoto/${appero.id}" alt=""/></a>
-                        <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Commander</a>
+                        <g:link controller="restoMenuElement" action="show" id="${dessert.id}"><img class="full-width img-responsive" src="file/getMenuElementPhoto/${dessert.id}" alt=""/></g:link>
+                        <g:form controller="orderedElement" action="save" method="POST" id="test${dessert.id}">
+                            <g:hiddenField name="product" value="${dessert.id}" />
+                            <g:hiddenField name="order" value="${currentOrder.id}" />
+                            <g:hiddenField name="number" value="1" />
+                            <input type="submit" value="Commander" class="add-to-cart"/>
+
+                        </g:form>
                     </div>
                     <div class="product-description product-description-brd">
                         <div class="overflow-h margin-bottom-5">
                             <div class="pull-left">
-                                <h4 class="title-price"><a href="shop-ui-inner.html">${appero.label}</a></h4>
+                                <h4 class="title-price"><a href="shop-ui-inner.html">${dessert.label}</a></h4>
                             </div>    
                             <div class="product-price">
-                                <span class="title-price">${appero.price} Frcs</span>
+                                <span class="title-price">${dessert.price} Frcs</span>
                             </div>
                         </div>    
                         <ul class="list-inline product-ratings">
@@ -686,10 +710,12 @@
 <!-- JS Page Level -->
 <asset:javascript src="shop.app.js"/>
 <asset:javascript src="plugins/owl-carousel.js"/>
+<asset:javascript src="plugins/wow-animations/js/wow.min.js"/>
 <asset:javascript src="plugins/revolution-slider.js"/>
 <script>
     jQuery(document).ready(function() {
         App.init();
+        App.updateCart("${currentOrder.id}");
         App.initScrollBar();
         App.initParallaxBg();
         OwlCarousel.initOwlCarousel();

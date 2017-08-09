@@ -1,9 +1,3 @@
-function subtractQty(){
-    if(document.getElementById("qty").value - 1 < 0)
-        return;
-    else
-        document.getElementById("qty").value--;
-}
 
 function subtractQty1() {
     if(document.getElementById("qty1").value - 1 < 0)

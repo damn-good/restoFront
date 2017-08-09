@@ -8,7 +8,7 @@ class RestoMenuElement {
 
     static constraints = {
     	label nullable:false
-    	category inList:["appéritifs","rafraîchissements", "entrées", "consistances", "Desserts"]
+    	category inList:["appéritifs","rafraîchissements", "entrées", "consistances", "désserts"]
     	photo nullable:true, maxSize:10485760
         orderList nullable:true
         description maxSize:25000

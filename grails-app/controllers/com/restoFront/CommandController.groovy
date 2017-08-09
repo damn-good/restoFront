@@ -31,6 +31,15 @@ class CommandController {
         request.withFormat {'*' { respond data, formats:['json'] }  }
     }
 
+    def checkout(Command command){
+        def cost=0;
+        for (item in command.items){
+            cost+=(item.number*item.product.price)
+        }
+        def data=["items":command.items,"cost":cost]
+        respond data
+    }
+
     @Transactional
     def save(Command command) {
         if (command == null) {
