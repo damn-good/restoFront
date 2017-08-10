@@ -664,7 +664,7 @@
 <!-- JS Implementing Plugins -->
 <asset:javascript  src="plugins/back-to-top.js"/>
 <asset:javascript  src="plugins/smoothScroll.js"/>
-<asset:javascript  src="plugins/jquery-steps/build/jquery.steps.js"/>
+<asset:javascript  src="plugins/jquery-steps/build/jquery.steps.js"/> 
 <asset:javascript  src="plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"/>
 <asset:javascript  src="plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"/>
 <!-- JS Customization -->
